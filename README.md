@@ -2,6 +2,9 @@
 
 Backend para el sistema de gestión de la Feria Puno, desarrollado con Node.js, Express y MySQL.
 
+## Autor
+Juan Carlos Palacios Chalco
+
 ## Estructura Modular del Sistema
 
 El sistema está diseñado con una estructura modular que consta de:

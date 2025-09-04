@@ -26,21 +26,26 @@ El sistema está diseñado con una estructura modular que consta de:
 
 1. Instalar y configurar MySQL/MariaDB.
 2. Ejecutar el script de inicialización de la base de datos (`database/init.sql`).
-3. Configurar MySQL para aceptar conexiones remotas.
-4. Obtener la IP de la máquina servidor.
+3. Configurar MySQL para aceptar conexiones remotas:
+   - Editar el archivo de configuración de MySQL (`my.cnf` o `my.ini`) para permitir conexiones remotas (bind-address = 0.0.0.0).
+   - Crear un usuario MySQL con permisos para acceder desde la IP de la máquina cliente.
+   - Asegurarse que el firewall permita conexiones al puerto 3306.
+4. Compartir la unidad de almacenamiento en red (por ejemplo, mediante SMB en Windows o NFS en Linux) donde se aloja la base de datos para que la máquina cliente pueda acceder.
+5. Obtener la IP de la máquina servidor.
 
 ### En la máquina cliente (donde se ejecutará la aplicación):
 
 1. Clonar este repositorio.
-2. Editar el archivo `.env` para configurar la conexión a la base de datos:
+2. Montar la unidad de almacenamiento en red compartida por la máquina servidor.
+3. Editar el archivo `.env` para configurar la conexión a la base de datos:
    ```
    DB_HOST=IP_DEL_SERVIDOR
    DB_USER=usuario_mysql
    DB_PASSWORD=contraseña_mysql
    DB_NAME=feria_puno_db
    ```
-3. Instalar dependencias: `npm install`
-4. Iniciar la aplicación: `npm start`
+4. Instalar dependencias: `npm install`
+5. Iniciar la aplicación: `npm start`
 
 ## Autenticación y Control de Acceso
 
